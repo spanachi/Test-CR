@@ -25,8 +25,7 @@ routers:
       mgmt_protocol: ssh
     hidden: false
 networks:
-  - id: n2
-    name: network-2
+  - name: network-2
     cidr: 192.168.10.0/28
     accessible: true
     hidden: false
