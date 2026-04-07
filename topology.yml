@@ -1,0 +1,40 @@
+name: demo-sandbox
+hosts:
+  - name: host-1
+    base_box:
+      image: kali-2020.4
+      mgmt_user: debian
+    flavor: standard.small
+  - name: host-2
+    base_box:
+      image: ubuntu-noble-x86_64
+      mgmt_user: ubuntu
+    flavor: standard.small
+routers:
+  - name: router-1
+    base_box:
+      image: debian-12-x86_64
+      mgmt_user: debian
+    flavor: standard.small
+networks:
+  - name: network-1
+    cidr: 192.168.1.0/24
+    accessible_by_user: true
+  - name: network-2
+    cidr: 192.168.10.0/28
+    accessible_by_user: false
+net_mappings:
+  - host: host-1
+    network: network-2
+    ip: 192.168.10.5
+  - host: host-2
+    network: network-2
+    ip: 192.168.10.6
+router_mappings:
+  - router: router-1
+    network: network-1
+    ip: 192.168.1.1
+  - router: router-1
+    network: network-2
+    ip: 192.168.10.1
+groups: []
