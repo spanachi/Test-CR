@@ -1,0 +1,50 @@
+name: demo-sandbox
+hosts:
+  - name: host-1
+    flavor: standard.small
+    base_box:
+      image: kali
+      mgmt_user: kali
+      mgmt_protocol: ssh
+    hidden: false
+    volumes: []
+    extra: 'null'
+  - name: host-2
+    flavor: standard.small
+    base_box:
+      image: ubuntu-noble-x86_64
+      mgmt_user: ubuntu
+      mgmt_protocol: ssh
+    hidden: false
+    volumes: []
+    extra: ''
+routers:
+  - name: router-1
+    flavor: standard.small
+    base_box:
+      image: ubuntu-noble-x86_64
+      mgmt_user: ubuntu
+      mgmt_protocol: ssh
+    hidden: false
+    extra: ''
+networks:
+  - id: n2
+    name: network-2
+    cidr: 192.168.10.0/28
+    accessible: true
+    hidden: false
+wan:
+  name: network-1
+  cidr: 192.168.10.16/30
+hostNetMappings: []
+routerNetMappings: []
+groups:
+  - name: Example1
+    nodes:
+      - host-2
+      - router-1
+monitoring_targets:
+  - node: host-2
+    targets:
+      - port: '80'
+        interface: eth0
