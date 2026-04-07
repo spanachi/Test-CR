@@ -45,7 +45,6 @@ net_mappings:
   - host: host-1
     network: network-2
     ip: 192.168.10.5
-
   - host: host-2
     network: network-2
     ip: 192.168.10.6
