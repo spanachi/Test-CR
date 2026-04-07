@@ -32,8 +32,8 @@ networks:
 wan:
   name: network-1
   cidr: 192.168.10.16/30
-hostNetMappings: []
-routerNetMappings: []
+net_mappings: []
+router_mappings: []
 groups:
   - name: Example1
     nodes:
