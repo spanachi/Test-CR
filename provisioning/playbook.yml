@@ -1,0 +1,41 @@
+- name: attacker setup
+  hosts:
+    - host-1
+  become: true
+  vars: {}
+  vars_files: {}
+  vars_prompt: {}
+  collections: {}
+  tasks:
+    - name: install nmap
+      ansible.builtin.apt:
+        name: nmap
+      become: true
+      notify: {}
+      tags: {}
+  tags: {}
+- name: victim setup test
+  hosts:
+    - host-2
+  become: true
+  vars: {}
+  vars_files: {}
+  vars_prompt: {}
+  collections: {}
+  tasks:
+    - name: install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+      become: true
+      notify: {}
+      tags: {}
+    - name: start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+      become: true
+      notify: {}
+      tags: {}
+  tags: {}
