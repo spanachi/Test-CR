@@ -8,7 +8,6 @@ hosts:
       mgmt_protocol: ssh
     hidden: false
     volumes: []
-    extra: 'null'
   - name: host-2
     flavor: standard.small
     base_box:
@@ -17,7 +16,6 @@ hosts:
       mgmt_protocol: ssh
     hidden: false
     volumes: []
-    extra: ''
 routers:
   - name: router-1
     flavor: standard.small
@@ -26,7 +24,6 @@ routers:
       mgmt_user: ubuntu
       mgmt_protocol: ssh
     hidden: false
-    extra: ''
 networks:
   - id: n2
     name: network-2
