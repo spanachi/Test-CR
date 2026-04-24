@@ -1,4 +1,4 @@
-name: demo-sandbox
+name: demo-kali-sandbox
 hosts:
   - name: host-1
     base_box:
